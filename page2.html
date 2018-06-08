@@ -3,81 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Brandon Chai</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel=icon href=favicon.png>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
 	<style>
 		* {
 			font-family: 'Karla', sans-serif;
 			text-rendering: optimizeLegibility;
 		}
-		.navbar ul {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: horizontal;
-			-webkit-box-direction: normal;
-			    -ms-flex-direction: row;
-			        flex-direction: row;
-		}
+
 		ul {
 			list-style: none;
 		}
 
 		body{
-/*			margin: 0 auto;
-			max-width: 1100px;
-			padding: 0 1.5em;*/
 			margin: 0;
 		}
 
 		a {
 			text-decoration: none;
 			color: black;
-		}
-
-		.navbar {
-			display: -ms-grid;
-			display: grid;
-			-ms-grid-columns: 9fr 4fr;
-			    grid-template-columns: 9fr 4fr;
-			grid-gap: 1.5em;
-			padding: 3em 0;
-			font-size: 18px;
-			letter-spacing: 0.2px;
-			margin: 0 auto;
-			max-width: 1100px;
-			padding: 3em 24px;
-		}
-
-		.navbar__links {
-			display: -ms-grid;
-			display: grid;
-			-ms-grid-columns: (1fr)[4];
-			    grid-template-columns: repeat(4, 1fr);
-			grid-gap: 1.5em;
-		}
-
-
-		.navbar__links div {
-			cursor: pointer;
-			margin-right: 1em;
-			opacity: 0.3;
-			-webkit-transition: 0.5s ease;
-			-o-transition: 0.5s ease;
-			transition: 0.5s ease;
-		}
-
-		.navbar__links div:hover {
-			opacity: 1;
-		}
-
-		.navbar__links div.is-active {
-			opacity: 1;
-		}
-
-		.navbar__links div:last-child {
-			margin: 0;
 		}
 
 		.menu {
@@ -97,6 +42,7 @@
 			-webkit-transition: 0.5s ease;
 			-o-transition: 0.5s ease;
 			transition: 0.5s ease;
+			cursor: pointer;
 		}
 
 		.home:hover {
@@ -151,70 +97,17 @@
 			height: 310px;
 		}
 
-		.navbar__links-mobile {
-		    display: block;
-		    max-height: 0px;
-		    -webkit-transition: 1s ease;
-		    -o-transition: 1s ease;
-		    transition: 1s ease;
-		    position: absolute;
-		    background: white;
-		    z-index: 3;
-		    width: 100%;
-		    margin-bottom: 2em;
-		    opacity: 1;
-		    overflow: hidden;
-		    padding: 0 1.5em;
-		}
-
-		.navbar__links-mobile div {
-			margin-bottom: 1em;
-			opacity: 0.3;
-			cursor: pointer;
-			-webkit-transition: 0.5s ease;
-			-o-transition: 0.5s ease;
-			transition: 0.5s ease;
-		}
-
-		.navbar__links-mobile div:last-child {
-			margin-bottom: 3em;
-		}
-
-		.navbar__links-mobile div:hover {
-			opacity: 1;
-		}
-
-		.navbar__links-mobile div.is-active {
-			opacity: 1;
-		}
 
 		@media(max-width: 657px) {
 			.content {
 				-ms-grid-columns: 1fr;
 				    grid-template-columns: 1fr;
 			}
-			.navbar {
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: flex;
-				-webkit-box-orient: horizontal;
-				-webkit-box-direction: normal;
-				    -ms-flex-direction: row;
-				        flex-direction: row;
-				-webkit-box-align: center;
-				    -ms-flex-align: center;
-				        align-items: center;
-			}
-			.navbar__links {
+
+			.navbar .links {
 				display: none;
 			}
-			.navbar__links div {
-				padding-bottom: 1em;
-			}
-/*			body {
-				width: auto;
-				padding: 1em;
-			}*/
+
 			.menu {
 				display: block;
 				margin-left: auto;
@@ -227,8 +120,12 @@
 		}
 
 		@media (min-width: 658px) {
-			.navbar__links-mobile {
+			.navbar-mobile {
 				display: none !important;
+			}
+
+			.navbar .menu {
+				display: none;
 			}
 		}
 
@@ -286,24 +183,103 @@
 		    transition: none;
 		}
 
+		.navbar {
+		    background: #fff;
+		    min-height: 113px;
+		    position: fixed;
+		    z-index: 999;
+		    top: 0;
+		    left: 0;
+		    min-width: 100%;
+		    box-sizing: border-box;
+		    padding: 54px 24px 37px;
+		}
+
+		.navbar-top {
+		    display: flex;
+		    align-items: center;
+		    flex-wrap: wrap;
+		    max-width: 1100px;
+		    margin: 0 auto;
+		}
+
+		.navbar .links {
+			margin-left: auto;
+		}
+
+		.navbar .links span {
+			margin-right: 1.5em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar .links span:hover {
+			opacity: 1;
+		}
+
+		.navbar .links span.is-active {
+			opacity: 1;
+		}
+
+		.navbar .links span:last-child {
+			margin-right: 0;
+		}
+
+		.navbar-mobile {
+			overflow: hidden;
+			max-height: 0;
+			max-height: 500px;
+			transition: .5s ease;
+			margin: 0;
+		}
+
+		.navbar-mobile div {
+			margin-bottom: 1em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar-mobile div:hover {
+			opacity: 1;
+		}
+
+		.navbar-mobile div.is-active {
+			opacity: 1;
+		}
+
+		.navbar-mobile div:first-child {
+			margin-top: 2em;
+		}
+		.navbar-mobile div:last-child {
+			margin-bottom: 1em;
+		}
+
 	</style>
 </head>
 <body>
 <div class="navbar">
-	<a href="index.html"><div class="home">Brandon Chai</div></a>
-	<img class="menu" src="menu.svg">
-	<div class="navbar__links">
+	<div class="navbar-top">
+		<a href="brandonchai2.html"><span class="home">Brandon Chai</span></a>
+		<img class="menu" src="menu.svg">
+		<div class="links">
+			<span class="is-active">Design</span>
+			<span>Illustration</span>
+			<span>Contact</span>
+			<span>About</span>
+		</div>
+	</div>
+	<div class="navbar-mobile">
 		<div class="is-active">Design</div>
 		<div>Illustration</div>
 		<div>Contact</div>
 		<div>About</div>
 	</div>
-</div>
-<div class="navbar__links-mobile">
-	<div class="is-active">Design</div>
-	<div>Illustration</div>
-	<div>Contact</div>
-	<div>About</div>
 </div>
 <div class="content">
 	<script>document.getElementsByClassName("content")[0].classList.add("fade-out");</script>
@@ -316,7 +292,7 @@
 	<div style="margin: 0 auto; padding: 0 1.5em; max-width: 1100px; color: rgba(0,0,0,0);">
 		<div style="height: 500px; background: url('illo2.png');; max-width: 1100px; margin: 0 auto 1.5em;">A custom toolkit designed in collaboration with MEDA for financial coaches working to educate low-income immigrants in San Francisco's Mission District. The goal was to create a mental connection between the client's life aspirations and personal finance. We designed both the client-facing tools, as well as training tools for inexperience.</div>
 		<div style="height: 500px; background: url('illo3.png');; max-width: 1100px; margin: 0 auto 4em;"></div>
-		<a href="index.html"><p class="back">Back</p></a>
+		<a href="brandonchai2.html"><p class="back">Back</p></a>
 	</div>
 </div>
 <script>
@@ -324,12 +300,12 @@
 		document.getElementsByClassName("content")[0].classList.remove("fade-out");
 	});
 
-	var x = document.getElementsByClassName("navbar__links-mobile")[0];
+	var x = document.getElementsByClassName("navbar-mobile")[0];
 	x.style.maxHeight = "0px";
 
 	document.getElementsByClassName("menu")[0].onclick = function() {
 
-		var x = document.getElementsByClassName("navbar__links-mobile")[0];
+		var x = document.getElementsByClassName("navbar-mobile")[0];
 		if (x.style.maxHeight === "0px") {
 			x.style.maxHeight = "500px";
 		} else {

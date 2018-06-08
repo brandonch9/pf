@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brandon Chai</title>
+	<link rel=icon href=favicon.png>
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+	<style>
+		* {
+			font-family: 'Karla', sans-serif;
+			text-rendering: optimizeLegibility;
+		}
+
+		.content {
+		    opacity: 1;
+		    -webkit-transition: 1s opacity;
+		    -o-transition: 1s opacity;
+		    transition: 1s opacity;
+		}
+
+		.content.fade-out {
+		    opacity: 0;
+		    -webkit-transition: none;
+		    -o-transition: none;
+		    transition: none;
+		}
+
+		.navbar ul {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: row;
+			        flex-direction: row;
+		}
+		ul {
+			list-style: none;
+		}
+
+		body{
+			margin: 0 auto;
+			max-width: 1100px;
+			padding: 0 1.5em;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.navbar {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: 9fr 4fr;
+			    grid-template-columns: 9fr 4fr;
+			grid-gap: 1.5em;
+			padding: 3em 0;
+			font-size: 18px;
+			letter-spacing: 0.2px;
+		}
+
+		.navbar__links {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: (1fr)[4];
+			    grid-template-columns: repeat(4, 1fr);
+			grid-gap: 1.5em;
+		}
+
+		.navbar__links div {
+			cursor: pointer;
+			margin-right: 1em;
+			opacity: 0.3;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar__links div:hover {
+			opacity: 1;
+		}
+
+		.navbar__links div.is-active {
+			opacity: 1;
+		}
+
+		.navbar__links div:last-child {
+			margin: 0;
+		}
+
+		.menu {
+			display: none;
+			height: 14px;
+			cursor: pointer;
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+		}
+
+		.menu:hover {
+			opacity: .3;
+		}
+		
+		.home {
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+		}
+
+		.home:hover {
+			opacity: 0.4;
+		}
+
+
+		.content {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: (1fr)[2];
+			    grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 1.5em;
+			margin-bottom: 4em;
+		}
+
+		.content p {
+			color: white;
+			padding: 2em;
+			font-size: 1em;
+			text-align: center;
+			margin: 0;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			position: relative;
+		}
+
+		.content p:hover {
+			opacity: 0.6;
+			cursor: pointer;
+		}
+
+		.label {
+			position: absolute;
+		    color: white;
+		    top: 0;
+		    left: 0;
+		    padding: 1em;
+		    background: rgba(0,0,0,1);
+		    opacity: 0;
+		    -webkit-transition: .5s all ease;
+		    -o-transition: .5s all ease;
+		    transition: .5s all ease;
+		}
+
+		.content p:hover .label {
+			opacity: 1;
+		}
+
+		.col p{
+			margin-bottom: 1.5em;
+			background: rgba(0,0,0,0.03);
+		}
+
+		.one {
+			height: 350px;
+			background: url(illo.png) !important;
+		}
+		.two {
+			height: 300px;
+			background: url(illo2.png) !important;
+		}
+		.three {
+			height: 330px;
+			background: url(illo3.png) !important;
+		}
+		.four {
+			height: 280px;
+		}
+		.five {
+			height: 340px;
+		}
+		.six {
+			height: 300px;
+		}
+		.seven {
+			height: 250px;
+		}
+		.eight {
+			height: 390px;
+		}
+
+		.navbar__links-mobile {
+		    display: block;
+		    max-height: 0px;
+		    -webkit-transition: 1s ease;
+		    -o-transition: 1s ease;
+		    transition: 1s ease;
+		    position: absolute;
+		    background: white;
+		    z-index: 3;
+		    width: 100%;
+		    margin-bottom: 2em;
+		    opacity: 1;
+		    overflow: hidden;
+		}
+
+		.navbar__links-mobile div {
+			margin-bottom: 1em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar__links-mobile div:last-child {
+			margin-bottom: 3em;
+		}
+
+		.navbar__links-mobile div:hover {
+			opacity: 1;
+		}
+
+		.navbar__links-mobile div.is-active {
+			opacity: 1;
+		}
+
+		@media(max-width: 657px) {
+			.content {
+				-ms-grid-columns: 1fr;
+				    grid-template-columns: 1fr;
+			}
+			.navbar {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				    -ms-flex-direction: row;
+				        flex-direction: row;
+				-webkit-box-align: center;
+				    -ms-flex-align: center;
+				        align-items: center;
+			}
+			.navbar__links {
+				display: none;
+			}
+			.navbar__links div {
+				padding-bottom: 1em;
+			}
+			body {
+				width: auto;
+				padding: 0 1.5em;
+			}
+			.menu {
+				display: block;
+				margin-left: auto;
+
+			}
+		}
+
+		@media (min-width: 658px) {
+			.navbar__links-mobile {
+				display: none !important;
+			}
+		}
+
+		.footer {
+			color: black; 
+			text-align: center; 
+			letter-spacing: .2px; 
+			font-size: 16px; 
+			margin: 0 0 4em 0; 
+			padding: 2em; 
+			opacity: 0.3;
+		}
+
+	</style>
+</head>
+<body>
+	
+<div class="navbar">
+	<a href="brandonchai2.html"><div class="home">Brandon Chai</div></a>
+	<img class="menu" src="menu.svg">
+	<div class="navbar__links">
+		<div class="is-active">Design</div>
+		<div>Illustration</div>
+		<div>Contact</div>
+		<div>About</div>
+	</div>
+</div>
+<div class="navbar__links-mobile">
+	<div class="is-active">Design</div>
+	<div>Illustration</div>
+	<div>Contact</div>
+	<div>About</div>
+</div>
+<div class="content">
+	<script>document.getElementsByClassName("content")[0].classList.add("fade-out");</script>
+	<div class="col col1">
+		<a href="page2.html"><p class="one"><span class="label">Quartzy</span></p></a>
+		<a href="page2.html"><p class="three">1<span class="label">Quartzy</span></p></a>
+		<a href="page2.html"><p class="five">1<span class="label">Quartzy</span></p></a>
+		<a href="page2.html"><p class="seven">1<span class="label">Quartzy</span></p></a>
+	</div>
+	<div class="col col2">
+		<a href="page2.html"><p class="two">1<span class="label">Quartzy</span></p></a>
+		<a href="page2.html"><p class="four">1<span class="label">Quartzy</span></p></a>
+		<a href="page2.html"><p class="six">1<span class="label">Quartzy</span></p></a>	
+		<a href="page2.html"><p class="eight">1<span class="label">Quartzy</span></p></a>	
+	</div>
+</div>
+<p class="footer">©&nbsp;&nbsp;Brandon Chai&nbsp;&nbsp;2018</p></a>
+
+<script>
+	window.addEventListener("load", function() {
+		document.getElementsByClassName("content")[0].classList.remove("fade-out");
+	});
+
+	var x = document.getElementsByClassName("navbar__links-mobile")[0];
+	x.style.maxHeight = "0px";
+
+	document.getElementsByClassName("menu")[0].onclick = function() {
+
+		var x = document.getElementsByClassName("navbar__links-mobile")[0];
+		if (x.style.maxHeight === "0px") {
+			x.style.maxHeight = "500px";
+		} else {
+			x.style.maxHeight = "0px";
+		}
+	}
+</script>
+</div>
+</body>
+</html>

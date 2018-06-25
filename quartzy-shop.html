@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brandon Chai</title>
+	<link rel=icon href=favicon.png>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,600i" rel="stylesheet">
+	<style>
+		* {
+			font-family: 'Karla', sans-serif;
+			text-rendering: optimizeLegibility;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		body{
+			margin: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.menu {
+			display: none;
+			height: 14px;
+			cursor: pointer;
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+		}
+
+		.menu:hover {
+			opacity: .3;
+		}
+
+		.home {
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+			cursor: pointer;
+		}
+
+		.home:hover {
+			opacity: 0.4;
+		}
+
+
+		.content {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: 1fr;
+			    grid-template-columns: 1fr;
+		}
+
+		.content p {
+			padding: 2em;
+			font-size: 1em;
+			text-align: center;
+			margin: 0;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+
+		.col p{
+			margin-bottom: 16px;
+			opacity: 0.2;
+		}
+
+		.one {
+			height: 350px;
+		}
+		.two {
+			height: 270px;
+		}
+		.three {
+			height: 180px;
+		}
+		.four {
+			height: 230px;
+		}
+		.five {
+			height: 160px;
+		}
+		.six {
+			height: 310px;
+		}
+
+
+		@media (min-width: 658px) {
+			.navbar-mobile {
+				display: none !important;
+			}
+
+			.navbar .menu {
+				display: none;
+			}
+		}
+
+		.copy {
+		    margin: 5em auto;
+		    max-width: 1100px;
+		    padding: 0 1.5em;
+		    text-align: center;
+		}
+
+		.copy h1 {
+			margin: 0 auto 2rem;
+			letter-spacing: .2px;
+			font-weight: 400;
+			font-size: 28px;
+		}
+
+		.copy p {
+			padding: 0;
+		    line-height: 29px;
+		    font-size: 1.1em;
+		    margin-bottom: 2em;
+		    letter-spacing: .2px;
+		    max-width: 720px;
+		}
+
+		.copy small {
+			letter-spacing: .2px;
+		    margin-bottom: 6em;
+		    display: block;
+		}
+
+		.back {
+			opacity: 0.3;
+			margin-bottom: 4em !important;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+		.back:hover {
+			opacity: 1;
+		}
+
+		.content {
+		    opacity: 1;
+		    -webkit-transition: 1s opacity;
+		    -o-transition: 1s opacity;
+		    transition: 1s opacity;
+		    /*padding-top: 113px;*/
+		    padding-top: 92px;
+		}
+
+		.content.fade-out {
+		    opacity: 0;
+		    -webkit-transition: none;
+		    -o-transition: none;
+		    transition: none;
+		}
+
+		.navbar {
+		    background: #fff;
+		    /*min-height: 113px;*/
+		    position: fixed;
+		    z-index: 999;
+		    top: 0;
+		    left: 0;
+		    min-width: 100%;
+		    -webkit-box-sizing: border-box;
+		            box-sizing: border-box;
+		    /*padding: 54px 24px 37px;*/
+		    padding: 36px;
+		}
+
+		.navbar-top {
+		    display: -webkit-box;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-align: center;
+		        -ms-flex-align: center;
+		            align-items: center;
+		    -ms-flex-wrap: wrap;
+		        flex-wrap: wrap;
+		    max-width: 1100px;
+		    margin: 0 auto;
+		}
+
+		.navbar .links {
+			margin-left: auto;
+		}
+
+		.navbar .links span {
+			margin-right: 1.5em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar .links span:hover {
+			opacity: 1;
+		}
+
+		.navbar .links span.is-active {
+			opacity: 1;
+		}
+
+		.navbar .links a:last-child span{
+			margin-right: 0;
+		}
+
+		.navbar-mobile {
+			overflow: hidden;
+			max-height: 0;
+			max-height: 500px;
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+			margin: 0;
+		}
+
+		.navbar-mobile div {
+			margin-bottom: 1em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar-mobile div:hover {
+			opacity: 1;
+		}
+
+		.navbar-mobile div.is-active {
+			opacity: 1;
+		}
+
+		.navbar-mobile div:first-child {
+			margin-top: 2em;
+		}
+		.navbar-mobile div:last-child {
+			margin-bottom: 1em;
+		}
+
+		.shot {
+			background-size: contain !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+
+		@media(max-width: 657px) {
+			.content {
+				-ms-grid-columns: 1fr;
+				    grid-template-columns: 1fr;
+			}
+
+			.shot-1 {
+				height: 800px !important; 
+			}
+
+			.shot-2 {
+				height: 600px !important;
+				background-size: contain !important;
+			}
+
+			.shot-3 {
+				height: 800px !important;
+				background-size: contain !important;
+			}
+
+			.split {
+				-ms-grid-columns: 1fr !important;
+				    grid-template-columns: 1fr !important;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-top">
+		<a href="brandonchai2.html" style="font-family: 'IBM Plex Mono', monospace;">Brandon Chai</a>
+		<img class="menu" src="menu.svg">
+		<div class="links">
+			<a href="brandonchai2.html"><span>Work</span></a>
+			<a href="info.html"><span>Info</span></a>
+		</div>
+	</div>
+	<div class="navbar-mobile">
+		<a href="brandonchai2.html"><span>Work</span></a>
+		<a href="info.html"><span>Info</span></a>
+	</div>
+</div>
+<div class="content">
+	<script>document.getElementsByClassName("content")[0].classList.add("fade-out");</script>
+	<div style="background-color: #F2F3F8;">
+		<div class="shot" style="height: 500px; background: url('quartzy-shop-1.jpg'); background-size: contain !important; width: 100%;"></div>
+	</div>
+	<div class="copy">
+		<h1>Quartzy Shop</h1>
+		<p>Quartzy Shop is a lab supply marketplace for labs to browse and purchase lab supplies. I was tasked with creating the interface and visual design for a product page. The typography, color, and layout choices made here that would later be used to inform a brand style guide.</p>
+		<!-- <small>Visual design, web design, 2018</small> -->
+	</div>
+	<div style="margin: 0 auto; padding: 0 1.5em; max-width: 1100px; color: rgba(0,0,0,0);">
+		<div style="background: #F2F3F8;">
+			<div class="shot shot-1" style="height: 1500px; background: url('quartzy-shop-5.jpg'); background-size: contain !important; max-width: 1100px; margin: 0 auto 1.5em;">A custom toolkit designed in collaboration with MEDA for financial coaches working to educate low-income immigrants in San Francisco's Mission District. The goal was to create a mental connection between the client's life aspirations and personal finance. We designed both the client-facing tools, as well as training tools for inexperience.</div>
+		</div>
+		<div style="background: #F2F3F8;">
+			<div class="shot shot-2" style="height: 800px; background: url('quartzy-shop-11.jpg'); max-width: 1100px; margin: 0 auto 1.5em;"></div>
+		</div>
+		<div style="background: #F2F3F8; margin: 0 auto 4em; padding: 4em 2em;">
+			<div class="shot shot-3" style="height: 1400px; background: url('quartzy-shop-10.jpg'); max-width: 1100px;"></div>
+		</div>
+		<a href="brandonchai2.html"><p class="back">Back</p></a>
+	</div>
+</div>
+<script>
+	window.addEventListener("load", function() {
+		document.getElementsByClassName("content")[0].classList.remove("fade-out");
+	});
+
+	var x = document.getElementsByClassName("navbar-mobile")[0];
+	x.style.maxHeight = "0px";
+
+	document.getElementsByClassName("menu")[0].onclick = function() {
+
+		var x = document.getElementsByClassName("navbar-mobile")[0];
+		if (x.style.maxHeight === "0px") {
+			x.style.maxHeight = "500px";
+		} else {
+			x.style.maxHeight = "0px";
+		}
+	}
+</script>
+</div>
+</body>
+</html>

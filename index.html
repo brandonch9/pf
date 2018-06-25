@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brandon Chai</title>
+	<link rel=icon href=favicon.png>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,600i" rel="stylesheet">
+	<style>
+		* {
+			font-family: 'Karla', sans-serif;
+			text-rendering: optimizeLegibility;
+		}
+
+		.content {
+		    opacity: 1;
+		    -webkit-transition: 1s opacity;
+		    -o-transition: 1s opacity;
+		    transition: 1s opacity;
+		}
+
+		.content.fade-out {
+		    opacity: 0;
+		    -webkit-transition: none;
+		    -o-transition: none;
+		    transition: none;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		body{
+			margin: 0 auto;
+			max-width: 1100px;
+			padding: 0 1.5em;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			cursor: pointer;
+		}
+
+		.menu {
+			display: none;
+			height: 14px;
+			cursor: pointer;
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+		}
+
+		.menu:hover {
+			opacity: .3;
+		}
+		
+		.home {
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+			cursor: pointer;
+		}
+
+		.home:hover {
+			opacity: 0.4;
+		}
+
+
+		.content {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: (1fr)[2];
+			    grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 1.5em;
+			margin-bottom: 4em;
+			/*padding-top: 135px;*/
+			padding-top: 92px;
+		}
+
+		.content p {
+			color: white;
+			padding: 2em;
+			font-size: 1em;
+			text-align: center;
+			margin: 0;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			position: relative;
+		}
+
+		.content p:hover {
+			opacity: 0.6;
+			cursor: pointer;
+		}
+
+		.label {
+			position: absolute;
+		    color: white;
+		    top: 0;
+		    left: 0;
+		    padding: 1em;
+		    background: rgba(0,0,0,1);
+		    opacity: 0;
+		    -webkit-transition: .5s all ease;
+		    -o-transition: .5s all ease;
+		    transition: .5s all ease;
+		}
+
+		.content p:hover .label {
+			opacity: 1;
+		}
+
+		.col p{
+			margin-bottom: 1.5em;
+			background: rgba(0,0,0,0.03);
+		}
+
+		.one {
+			height: 350px;
+			/*background: url(illo.png) !important;*/
+		}
+		.two {
+			height: 370px;
+			/*background: url(illo2.png) !important;*/
+		}
+		.three {
+			height: 420px;
+			/*background: url(hoya-icons-1.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+		.four {
+		    height: 400px;
+		    /*background: url(quartzy-shop-1.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+		.five {
+			height: 330px;
+			/*background: url(quartzy-illos-2.png) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+		.six {
+			height: 420px;
+			/*background: url(quartzy-slides-5.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+		.seven {
+			height: 380px;
+			/*background: url(quartzy-email-1.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+		.eight {
+			height: 390px;
+			/*background: url(upguard-2.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+
+		.nine {
+			height: 420px;
+			/*background: url(nba-lp-1.jpg) !important;*/
+		    background-size: cover !important;
+		    background-repeat: no-repeat !important;
+		    background-position-x: center !important;
+   		 	background-position-y: center !important;
+		}
+
+		@media(max-width: 657px) {
+			.content {
+				-ms-grid-columns: 1fr;
+				    grid-template-columns: 1fr;
+			}
+			body {
+				width: auto;
+				padding: 0 1.5em;
+			}
+
+			.two {
+				height: 300px;
+			}
+
+			.three {
+				height: 250px;
+			}
+
+			.four {
+				height: 300px;
+			}
+
+			.five {
+				height: 250px;
+			}
+
+			.six {
+				height: 300px;
+			}
+
+			.seven {
+				height: 300px;
+			}
+
+			.eight {
+				height: 300px;
+			}
+
+			.nine {
+				height: 300px;
+			}
+		}
+
+
+		@media (min-width: 1089px) {
+			.navbar-mobile {
+				display: none !important;
+			}
+
+			.navbar .menu {
+				display: none;
+			}
+		}
+
+		.footer {
+			color: black; 
+			text-align: center; 
+			letter-spacing: .2px; 
+			font-size: 16px; 
+			margin: 0 0 4em 0; 
+			padding: 2em; 
+			opacity: 0.3;
+			line-height: 1.4em;
+		}
+
+		.navbar {
+		    background: #fff;
+		    /*min-height: 113px;*/
+		    position: fixed;
+		    z-index: 999;
+		    top: 0;
+		    left: 0;
+		    min-width: 100%;
+		    -webkit-box-sizing: border-box;
+		            box-sizing: border-box;
+		    /*padding: 54px 24px 37px;*/
+		    padding: 36px;
+		}
+
+		.navbar-top {
+		    display: -webkit-box;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-align: center;
+		        -ms-flex-align: center;
+		            align-items: center;
+		    -ms-flex-wrap: wrap;
+		        flex-wrap: wrap;
+			max-width: 1100px;
+			margin: 0 auto;
+		}
+
+		.navbar .links {
+			margin-left: auto;
+		}
+
+		.navbar .links span {
+			margin-right: 1.5em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar .links span:hover {
+			opacity: 1;
+		}
+
+		.navbar .links span.is-active {
+			opacity: 1;
+		}
+
+		.navbar .links a:last-child span{
+			margin-right: 0;
+		}
+
+		.navbar-mobile {
+			overflow: hidden;
+			max-height: 0;
+			max-height: 500px;
+			-webkit-transition: .5s ease;
+			-o-transition: .5s ease;
+			transition: .5s ease;
+			margin: 0;
+		}
+
+		.navbar-mobile div {
+			margin-bottom: 1em;
+			opacity: 0.3;
+			cursor: pointer;
+			-webkit-transition: 0.5s ease;
+			-o-transition: 0.5s ease;
+			transition: 0.5s ease;
+		}
+
+		.navbar-mobile div:hover {
+			opacity: 1;
+		}
+
+		.navbar-mobile div.is-active {
+			opacity: 1;
+		}
+
+		.navbar-mobile div:first-child {
+			margin-top: 2em;
+		}
+		.navbar-mobile div:last-child {
+			margin-bottom: 1em;
+		}
+
+		.shot {
+			background-size: contain !important;
+			background-repeat: no-repeat !important; 
+			background-position: center center !important;
+		}
+
+		.purple {
+			color: #996FCD;
+			font-size: 16px;
+		}
+
+		.green {
+			color: #95E2E1;
+			font-size: 16px;
+		}
+
+
+	</style>
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-top">
+		<a href="index.html" style="font-family: 'IBM Plex Mono', monospace;">Brandon Chai</a>
+		<img class="menu" src="menu.svg">
+		<div class="links">
+			<a href="index.html"><span class="is-active">Work</span></a>
+			<a href="info.html"><span>Info</span></a>
+		</div>
+	</div>
+	<div class="navbar-mobile">
+		<a href="index.html"><span class="is-active">Work</span></a>
+		<a href="info.html"><span>Info</span></a>
+	</div>
+</div>
+<div class="content">
+	<script>document.getElementsByClassName("content")[0].classList.add("fade-out");</script>
+	<div class="col col1">
+		<!-- <a href="page2.html"><p class="one" style="background: url(illo.png)"><span class="label">Quartzy</span></p></a> -->
+		<a href="quartzy-illos.html"><div style="background: #fcf6f4;"><p class="shot three" style="background: url(quartzy-illos-1.svg); background-size: contain !important;"><span class="label">Quartzy Illustration Set</span></p></div></a>
+		<a href="hoya-icons.html"><div style="background: #bcdce9;"><p class="shot five" style="background: url(hoya-icons-3.jpg)"><span class="label">Hoya Health Icon Set</span></p></div></a>
+		<a href="quartzy-slides.html"><div style="background: #f3f4f8;"><p class="shot seven" style="background: url(quartzy-slides-5.jpg)"><span class="label">Quartzy Slide Templates</span></p></div></a>
+		<a href="nba-lp.html"><div style="background: #f3f4f8;"><p class="shot nine" style="background: url(nba-lp-1.jpg);"><span class="label">NBA League Pass</span></p></div></a>
+	</div>
+	<div class="col col2">
+		<a href="quartzy-shop.html"><div style="background: #f3f4f8;"><p class="shot four" style="background: url(quartzy-shop-1.jpg)"><span class="label">Quartzy Shop</span></p></div></a>
+		<div style="background: #ffc7bd;"><a href="hoya-illos.html"><p class="shot two" style="background: url(hoya-illos-5.jpg); background-size: contain !important;"><span class="label">Hoya Health Illustration</span></p></a></div>
+		<a href="quartzy-email.html"><div style="background: #f3f4f8;"><p class="shot six" style="background: url(quartzy-email-1.jpg)"><span class="label">Quartzy Email</span></p></div></a>
+		<a href="upguard.html"><div style="background: #f3f4f8;"><p class="shot eight" style="background: url(upguard-2.jpg)"><span class="label">Upguard Dashboard</span></p></div></a>	
+	</div>
+</div>
+<p class="footer">This site is made from scratch by me.<br>All work © Brandon Chai 2018</p>
+
+<script>
+	window.addEventListener("load", function() {
+		document.getElementsByClassName("content")[0].classList.remove("fade-out");
+	});
+
+	var x = document.getElementsByClassName("navbar-mobile")[0];
+	x.style.maxHeight = "0px";
+
+	document.getElementsByClassName("menu")[0].onclick = function() {
+
+		var x = document.getElementsByClassName("navbar-mobile")[0];
+		if (x.style.maxHeight === "0px") {
+			x.style.maxHeight = "500px";
+		} else {
+			x.style.maxHeight = "0px";
+		}
+	}
+</script>
+</div>
+</body>
+</html>
